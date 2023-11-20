@@ -47,6 +47,8 @@ dependencies:
   hawk_fab_menu: ^1.2.0
   speed_dial_fab: ^2.3.0
   flutter_slidable: "^3.0.0"
+  dots_indicator: ^2.0.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:

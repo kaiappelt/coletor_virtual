@@ -418,7 +418,7 @@ class HomePage extends StatelessWidget {
                           motion: ScrollMotion(),
                           children: [
                             SlidableAction(
-                              flex: 1,
+                              flex: 2,
                               borderRadius: BorderRadius.all(
                                 Radius.elliptical(defRadius, defRadius),
                               ),

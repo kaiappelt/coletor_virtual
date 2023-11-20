@@ -25,11 +25,10 @@ class VerificationCodePage extends StatelessWidget {
           appBar: AppBar(
             title: Text(DefText.codigoVerificacao),
           ),
-          body: Stack(
-            children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
+          body: SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
                   Container(
                     alignment: Alignment.topCenter,
                     child: Column(children: [
@@ -50,73 +49,79 @@ class VerificationCodePage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Text(
-                        DefText.digiteCodigoVerificacao,
-                        style: defListSubTitleMedium,
-                      ),
-                      defSizedBoxHeightMin,
-                      Text(
-                        'Teste@gmail.com',
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      defSizedBoxHeightLarge,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          InputVerificationCode(
-                            teste: '0',
-                          ),
-                          InputVerificationCode(
-                            teste: '0',
-                          ),
-                          InputVerificationCode(
-                            teste: '0',
-                          ),
-                          InputVerificationCode(
-                            teste: '0',
-                          ),
-                        ],
-                      )
                     ]),
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height - 450,
+                    child: Center(
+                        child: Column(
+                      children: [
+                        Text(
+                          DefText.digiteCodigoVerificacao,
+                          style: defListSubTitleMedium,
+                        ),
+                        defSizedBoxHeightMin,
+                        Text(
+                          'Teste@gmail.com',
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                        defSizedBoxHeightLarge,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            InputVerificationCode(
+                              teste: '0',
+                            ),
+                            InputVerificationCode(
+                              teste: '0',
+                            ),
+                            InputVerificationCode(
+                              teste: '0',
+                            ),
+                            InputVerificationCode(
+                              teste: '0',
+                            ),
+                          ],
+                        )
+                      ],
+                    )),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(defPaddingMedium),
                     child: Container(
-                      alignment: Alignment.bottomCenter,
-                      child: SizedBox(
-                        child: Column(
-                          children: [
-                            OutlinedButtonWidget(
-                              text: DefText.reenviarCodigoVerificacao,
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                    builder: (context) => const HomePage(),
-                                  ),
-                                );
-                              },
-                            ),
-                            defSizedBoxHeightMedium,
-                            ButtonWidget(
-                              text: DefText.realizarVerificacao,
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                    builder: (context) => const LoginPage(),
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
-                        ),
+                      height: 150,
+                      child: Column(
+                        children: [
+                          OutlinedButtonWidget(
+                            text: DefText.reenviarCodigoVerificacao,
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                  builder: (context) => const HomePage(),
+                                ),
+                              );
+                            },
+                          ),
+                          defSizedBoxHeightMedium,
+                          ButtonWidget(
+                            text: DefText.realizarVerificacao,
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                  builder: (context) => const LoginPage(),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
                 ],
-              )
-            ],
+              ),
+            ),
           ),
         );
       },

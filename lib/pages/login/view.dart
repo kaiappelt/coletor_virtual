@@ -30,124 +30,107 @@ class _LoginPageState extends State<LoginPage> {
       id: "login",
       builder: (_) {
         return Scaffold(
-          body: Padding(
-            padding: const EdgeInsets.all(defMarginMedium),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  alignment: Alignment.topCenter,
-                  child: Container(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        child: Image.asset(
-                          assetsColetorVirtualLogo,
-                          height: 250,
-                        ),
-                      ),
+          body: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(defPaddingMedium),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Image.asset(
+                      assetsOnboardingOne,
+                      height: 200,
                     ),
-                  ),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  child: Column(children: [
-                    InputField(
-                      headerText: DefText.email,
-                    ),
-                    defSizedBoxHeightMin,
-                    InputField(
-                      headerText: DefText.senha,
-                    ),
-                    SizedBox(
-                      height: 50,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    defSizedBoxHeightLarge,
+                    Container(
+                      height: MediaQuery.of(context).size.height - 450,
+                      child: Center(
+                          child: Column(
                         children: [
-                          Expanded(
-                            flex: 50,
-                            child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: Row(
-                                  children: <Widget>[
-                                    SizedBox(
-                                      width: 35,
-                                      height: 25,
-                                      child: FittedBox(
-                                        fit: BoxFit.fill,
-                                        child: Switch(
-                                          value: isSwitched,
-                                          activeColor: defOrange,
-                                          inactiveThumbColor: defGreyMedium,
-                                          inactiveTrackColor: Colors.white,
-                                          onChanged: (value) {
-                                            setState(() {
-                                              isSwitched = value;
-                                            });
-                                          },
-                                        ),
+                          InputField(
+                            headerText: DefText.email,
+                          ),
+                          defSizedBoxHeightMin,
+                          InputField(
+                            headerText: DefText.senha,
+                          ),
+                          SizedBox(height: 20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: <Widget>[
+                                  SizedBox(
+                                    width: 35,
+                                    height: 25,
+                                    child: FittedBox(
+                                      fit: BoxFit.fill,
+                                      child: Switch(
+                                        value: isSwitched,
+                                        activeColor: defOrange,
+                                        inactiveThumbColor: defGreyMedium,
+                                        inactiveTrackColor: Colors.white,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            isSwitched = value;
+                                          });
+                                        },
                                       ),
                                     ),
-                                    defSizedBoxWidthMin,
-                                    Text(
-                                      DefText.lembrar,
-                                      style: defListSubTitle,
-                                    ),
-                                  ],
-                                )),
-                          ),
-                          Expanded(
-                            flex: 50,
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: TextButton(
-                                onPressed: () {},
+                                  ),
+                                  defSizedBoxWidthMin,
+                                  Text(
+                                    DefText.lembrar,
+                                    style: defListSubTitle,
+                                  ),
+                                ],
+                              ),
+                              GestureDetector(
+                                onTap: () {},
                                 child: Text(
                                   DefText.esqueceuSenha,
                                   style: defLinkTitle,
                                 ),
                               ),
-                            ),
+                            ],
                           ),
                         ],
+                      )),
+                    ),
+                    Container(
+                      height: 150,
+                      child: Center(
+                        child: Column(
+                          children: [
+                            OutlinedButtonWidget(
+                              text: DefText.cadastrar,
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  CupertinoPageRoute(
+                                    builder: (context) => const RegisterPage(),
+                                  ),
+                                );
+                              },
+                            ),
+                            defSizedBoxHeightMedium,
+                            ButtonWidget(
+                              text: DefText.entrar,
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  CupertinoPageRoute(
+                                    builder: (context) => const HomePage(),
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ]),
+                  ],
                 ),
-                Container(
-                  alignment: Alignment.bottomCenter,
-                  child: SizedBox(
-                    child: Column(
-                      children: [
-                        OutlinedButtonWidget(
-                          text: DefText.cadastrar,
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              CupertinoPageRoute(
-                                builder: (context) => const RegisterPage(),
-                              ),
-                            );
-                          },
-                        ),
-                        defSizedBoxHeightMedium,
-                        ButtonWidget(
-                          text: DefText.entrar,
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              CupertinoPageRoute(
-                                builder: (context) => const HomePage(),
-                              ),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         );

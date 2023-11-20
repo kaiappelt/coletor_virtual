@@ -23,56 +23,56 @@ class RegisterPage extends StatelessWidget {
               DefText.criarConta,
             ),
           ),
-          body: Stack(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(defPaddingMedium),
+          body: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(defPaddingMedium),
+              child: SingleChildScrollView(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
+                  children: [
                     Container(
-                      alignment: Alignment.topCenter,
-                      child: Column(children: [
-                        InputField(
-                          headerText: DefText.nome,
-                        ),
-                        defSizedBoxHeightMin,
-                        InputField(
-                          headerText: DefText.email,
-                        ),
-                        defSizedBoxHeightMin,
-                        InputField(
-                          headerText: DefText.senha,
-                        ),
-                        defSizedBoxHeightMin,
-                        InputField(
-                          headerText: DefText.confirmarSenha,
-                        ),
-                      ]),
-                    ),
-                    Container(
-                      alignment: Alignment.bottomCenter,
-                      child: Column(
+                      height: MediaQuery.of(context).size.height - 250,
+                      child: Center(
+                          child: Column(
                         children: [
-                          ButtonWidget(
-                            text: DefText.criarConta,
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                CupertinoPageRoute(
-                                  builder: (context) =>
-                                      const VerificationCodePage(),
-                                ),
-                              );
-                            },
+                          InputField(
+                            headerText: DefText.nome,
+                          ),
+                          defSizedBoxHeightMin,
+                          InputField(
+                            headerText: DefText.email,
+                          ),
+                          defSizedBoxHeightMin,
+                          InputField(
+                            headerText: DefText.senha,
+                          ),
+                          defSizedBoxHeightMin,
+                          InputField(
+                            headerText: DefText.confirmarSenha,
                           ),
                         ],
+                      )),
+                    ),
+                    Container(
+                      height: 150,
+                      child: Center(
+                        child: ButtonWidget(
+                          text: DefText.criarConta,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                builder: (context) =>
+                                    const VerificationCodePage(),
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ],
                 ),
-              )
-            ],
+              ),
+            ),
           ),
         );
       },
