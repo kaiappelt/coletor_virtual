@@ -24,13 +24,25 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return GetBuilder<HomeController>(
       init: HomeController(),
       id: "home",
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            title: Center(
+              child: Container(
+                child: SizedBox(
+                  child: Image.asset(
+                    assetsVirtual,
+                    height: 30,
+                    width: double.infinity,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ),
+          ),
           // floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
           floatingActionButton: SpeedDialFabWidget(
             secondaryIconsList: [

@@ -54,7 +54,7 @@ class _OnboardingState extends State<Onboarding> {
                   children: [
                     OnboardingPage(
                       description: DefText.onboardingOne,
-                      image: assetsOnboardingOne,
+                      image: assetsColetorVirtual,
                     ),
                     OnboardingPage(
                       description: DefText.onboardingTwo,

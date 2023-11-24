@@ -6,3 +6,7 @@ const String assetsOnboardingThree =
 const String assetsServerLogo = "assets/onboarding/server.png";
 const String assetsBipBarCode = "assets/onboarding/Barcode-amico.png";
 const String assetsColetorVirtualLogo = "assets/onboarding/coletor-virtual.png";
+const String assetsColetorVirtual =
+    "assets/onboarding/coletor_Prancheta_1_copia.png";
+const String assetsColetor = "assets/onboarding/COLETOR.png";
+const String assetsVirtual = "assets/onboarding/VIRTUAL.png";
